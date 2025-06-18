@@ -121,10 +121,6 @@ def execute_code_safely(code: str, df) -> tuple:
             # If fig not explicitly defined but plots were created
             fig = plt.gcf()
             
-        # Extract employee with highest salary if that's what was asked
-        if 'highest_salary' in local_vars:
-            result_text += f"highest_salary: {local_vars['highest_salary']}\n"
-            
         # Extract any variables that might contain the answer
         for var_name, var_value in local_vars.items():
             if var_name not in ["df", "pd", "np", "plt", "sns", "fig"] and not var_name.startswith("_"):

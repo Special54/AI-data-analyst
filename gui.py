@@ -61,24 +61,8 @@ def process_query_simple(message, api_url, model_name):
         if ":" in line and not any(x in line.lower() for x in ["import ", "fig", "plt.", "ax.", "sns."]):
             result_lines.append(line.strip())
     
-    # Create a more descriptive text response
+    # Create a response that focuses on the actual results
     display_response = ""
-    
-    # Add an introduction based on the query
-    if "average" in message.lower():
-        display_response += f"Based on your question about averages in the dataset, I found:\n\n"
-    elif "highest" in message.lower() or "maximum" in message.lower() or "top" in message.lower():
-        display_response += f"I analyzed the dataset for the highest values and found:\n\n"
-    elif "lowest" in message.lower() or "minimum" in message.lower():
-        display_response += f"I analyzed the dataset for the lowest values and found:\n\n"
-    elif "correlation" in message.lower() or "relationship" in message.lower():
-        display_response += f"I examined the relationships in your data and found:\n\n"
-    elif "distribution" in message.lower() or "histogram" in message.lower():
-        display_response += f"Looking at the distribution in your dataset:\n\n"
-    elif "compare" in message.lower() or "comparison" in message.lower():
-        display_response += f"Comparing the values in your dataset:\n\n"
-    else:
-        display_response += f"Here's what I found in your data:\n\n"
     
     # Add the extracted results
     if result_lines:
@@ -94,14 +78,10 @@ def process_query_simple(message, api_url, model_name):
                     break
         
         if not found_result:
-            display_response += "I analyzed your data but couldn't extract specific numeric results. Please check the visualization for insights."
-    
-    # Add a conclusion if we have both results and a plot
-    if result_lines and plot_image:
-        display_response += "\n\nI've also created a visualization to help you better understand the data."
+            display_response += "Analysis complete. Please check the visualization below."
     
     # If no plot was generated but we have text results, create a simple text plot
-    if plot_image is None and display_response.strip() != "Results:":
+    if plot_image is None and display_response.strip():
         try:
             text_fig = create_text_plot(display_response)
             plot_image = save_plot_to_file(text_fig)

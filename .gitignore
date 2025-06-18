@@ -17,8 +17,7 @@ htmlcov/
 *.png
 *.jpg
 *.jpeg
-*.csv
-!example_data.csv
+
 
 # IDE specific files
 .vscode/

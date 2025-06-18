@@ -1,0 +1,101 @@
+CustomerID,Name,Age,Gender,Location,MemberSince,PurchaseCount,TotalSpent
+1,Customer 1,42,Female,New York,2023-10-11,10,4529.43
+2,Customer 2,61,Female,Phoenix,2023-07-29,15,2375.29
+3,Customer 3,38,Male,New York,2025-02-20,4,105.26
+4,Customer 4,20,Male,Los Angeles,2023-04-01,33,3464.22
+5,Customer 5,20,Female,Los Angeles,2023-08-13,38,2747.6
+6,Customer 6,18,Non-Binary,Los Angeles,2024-07-14,9,548.21
+7,Customer 7,32,Male,Chicago,2023-10-15,19,172.38
+8,Customer 8,21,Non-Binary,Chicago,2024-03-02,38,1116.24
+9,Customer 9,25,Male,New York,2023-04-29,34,3505.16
+10,Customer 10,65,Female,New York,2024-06-29,26,1872.98
+11,Customer 11,37,Male,Chicago,2024-04-26,18,3608.16
+12,Customer 12,43,Female,New York,2023-12-04,37,3143.65
+13,Customer 13,26,Female,Houston,2023-08-12,2,4667.43
+14,Customer 14,34,Female,New York,2023-12-04,28,2183.48
+15,Customer 15,71,Female,Phoenix,2023-04-28,21,4358.92
+16,Customer 16,62,Non-Binary,Los Angeles,2022-11-23,21,2027.25
+17,Customer 17,32,Non-Binary,Los Angeles,2024-03-04,44,3739.78
+18,Customer 18,63,Non-Binary,Houston,2024-02-16,37,1955.28
+19,Customer 19,52,Female,Houston,2022-10-06,16,319.96
+20,Customer 20,74,Female,Chicago,2024-07-22,37,1338.82
+21,Customer 21,51,Male,Phoenix,2023-01-26,27,2151.24
+22,Customer 22,25,Non-Binary,New York,2024-07-22,26,1441.43
+23,Customer 23,44,Female,Chicago,2022-11-05,31,2045.52
+24,Customer 24,31,Non-Binary,Los Angeles,2023-05-17,41,2131.99
+25,Customer 25,68,Male,New York,2024-08-26,36,4080.5
+26,Customer 26,40,Non-Binary,Houston,2025-03-28,30,402.8
+27,Customer 27,19,Female,Phoenix,2023-11-28,4,3252.37
+28,Customer 28,57,Male,New York,2024-01-14,45,378.79
+29,Customer 29,47,Female,Houston,2024-08-30,17,1623.16
+30,Customer 30,65,Non-Binary,Phoenix,2023-05-11,38,4090.91
+31,Customer 31,75,Male,Los Angeles,2023-02-08,8,66.33
+32,Customer 32,52,Non-Binary,Houston,2025-01-30,45,3382.38
+33,Customer 33,22,Female,Phoenix,2025-02-24,19,295.32
+34,Customer 34,42,Non-Binary,New York,2023-11-20,46,29.33
+35,Customer 35,70,Male,Chicago,2023-07-24,45,413.84
+36,Customer 36,24,Female,Chicago,2023-08-11,21,3100.85
+37,Customer 37,19,Female,Phoenix,2024-09-27,43,1967.44
+38,Customer 38,61,Female,Los Angeles,2024-12-24,48,704.45
+39,Customer 39,51,Female,Phoenix,2023-12-12,1,692.29
+40,Customer 40,54,Non-Binary,Phoenix,2024-05-19,30,4829.47
+41,Customer 41,48,Non-Binary,Los Angeles,2023-12-20,8,491.06
+42,Customer 42,66,Male,Los Angeles,2024-07-20,3,625.14
+43,Customer 43,76,Male,New York,2022-12-11,18,4136.37
+44,Customer 44,58,Male,Houston,2024-12-28,16,2723.17
+45,Customer 45,37,Non-Binary,Houston,2022-11-01,38,4885.7
+46,Customer 46,72,Male,Phoenix,2023-11-27,31,1566.05
+47,Customer 47,24,Non-Binary,Houston,2024-11-25,13,1333.73
+48,Customer 48,73,Female,New York,2025-05-02,40,4474.69
+49,Customer 49,70,Non-Binary,Phoenix,2023-10-11,18,1761.14
+50,Customer 50,69,Male,Los Angeles,2024-03-01,28,768.85
+51,Customer 51,19,Female,Chicago,2024-07-08,16,1421.01
+52,Customer 52,71,Male,Chicago,2023-01-15,22,290.49
+53,Customer 53,37,Female,Houston,2025-01-08,13,4381.99
+54,Customer 54,26,Male,New York,2023-07-23,38,2191.62
+55,Customer 55,29,Non-Binary,New York,2023-02-03,27,2315.79
+56,Customer 56,69,Non-Binary,Los Angeles,2024-11-29,3,4317.2
+57,Customer 57,28,Female,Phoenix,2025-02-04,10,950.83
+58,Customer 58,47,Male,Phoenix,2025-01-20,8,1494.39
+59,Customer 59,76,Female,Los Angeles,2023-10-29,40,266.55
+60,Customer 60,37,Female,Houston,2024-07-04,25,4501.81
+61,Customer 61,64,Male,Chicago,2023-09-22,16,2519.47
+62,Customer 62,48,Female,Chicago,2023-07-21,30,152.98
+63,Customer 63,62,Female,Chicago,2024-07-24,27,1447.29
+64,Customer 64,55,Female,Los Angeles,2024-07-12,11,1939.15
+65,Customer 65,21,Female,Chicago,2025-05-04,21,1486.6
+66,Customer 66,37,Female,Houston,2023-09-05,16,4227.42
+67,Customer 67,59,Non-Binary,Los Angeles,2024-12-16,39,4564.46
+68,Customer 68,43,Male,Phoenix,2024-04-15,4,1453.55
+69,Customer 69,40,Non-Binary,New York,2025-03-06,38,1896.39
+70,Customer 70,71,Non-Binary,Phoenix,2023-05-22,38,4921.3
+71,Customer 71,50,Female,Houston,2022-12-03,38,566.69
+72,Customer 72,34,Female,Houston,2025-04-20,9,675.37
+73,Customer 73,25,Male,Houston,2024-09-01,5,1044.4
+74,Customer 74,43,Non-Binary,Chicago,2023-07-14,38,1744.68
+75,Customer 75,70,Male,Chicago,2025-04-20,3,3924.65
+76,Customer 76,30,Female,New York,2025-05-31,10,2587.1
+77,Customer 77,33,Male,Los Angeles,2024-06-11,26,355.59
+78,Customer 78,50,Female,Phoenix,2022-10-24,6,1895.59
+79,Customer 79,29,Female,Los Angeles,2024-01-21,30,3117.19
+80,Customer 80,30,Non-Binary,Los Angeles,2023-07-15,26,978.88
+81,Customer 81,74,Male,Chicago,2024-04-25,22,4822.72
+82,Customer 82,78,Non-Binary,Chicago,2025-04-11,34,972.75
+83,Customer 83,25,Male,Phoenix,2023-04-18,14,4547.99
+84,Customer 84,60,Non-Binary,Los Angeles,2023-06-30,20,4544.17
+85,Customer 85,32,Male,New York,2024-05-26,28,3301.6
+86,Customer 86,33,Non-Binary,Chicago,2024-12-12,44,289.52
+87,Customer 87,62,Female,Houston,2025-03-23,44,3239.7
+88,Customer 88,42,Female,New York,2024-06-14,14,4653.83
+89,Customer 89,45,Female,Los Angeles,2024-05-21,11,1949.26
+90,Customer 90,38,Non-Binary,Houston,2023-05-11,32,1039.83
+91,Customer 91,76,Non-Binary,Phoenix,2023-05-12,29,1131.24
+92,Customer 92,26,Female,Los Angeles,2024-07-29,16,1099.01
+93,Customer 93,30,Male,Chicago,2023-04-26,24,2423.99
+94,Customer 94,53,Female,New York,2024-01-05,1,4774.84
+95,Customer 95,21,Non-Binary,Los Angeles,2024-05-29,25,1736.76
+96,Customer 96,55,Female,Los Angeles,2024-12-30,39,2404.41
+97,Customer 97,19,Non-Binary,Los Angeles,2023-03-28,9,2078.52
+98,Customer 98,56,Male,Los Angeles,2024-10-10,25,2771.87
+99,Customer 99,18,Male,New York,2025-05-04,11,453.01
+100,Customer 100,51,Female,Houston,2022-12-21,38,1346.57

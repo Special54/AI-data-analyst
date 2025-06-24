@@ -3,13 +3,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from typing import Dict, Any
 
+from langchain.schema import HumanMessage, SystemMessage
 from llm_interface import initialize_llm, process_query
-from utils import load_csv, create_text_plot, save_plot_to_file
+from utils import load_csv, create_text_plot, save_plot_to_file, get_dataframe_info
 from config import DEFAULT_API_URL, DEFAULT_MODEL_NAME, ALLOWED_FILE_TYPES, MAX_DISPLAY_ROWS
 
 # Global variables to store data
 DATAFRAME = None
 DATAFRAME_NAME = None
+GENERATE_GRAPHS = True  # Default to generating graphs
 
 def upload_file(file):
     """Handle file upload and reset chat."""
@@ -39,9 +41,16 @@ def clear_outputs():
     """Clear the output components when submitting a new query."""
     return "Analyzing your data...", None
 
+def toggle_graph_mode(checkbox_value):
+    """Toggle between graph generation and conversational mode."""
+    global GENERATE_GRAPHS
+    GENERATE_GRAPHS = checkbox_value
+    mode = "Graph generation mode" if checkbox_value else "Conversational mode"
+    return f"Switched to {mode}"
+
 def process_query_simple(message, api_url, model_name):
     """Process a user query and return text response and image separately"""
-    global DATAFRAME
+    global DATAFRAME, GENERATE_GRAPHS
     
     # Check if dataframe is loaded
     if DATAFRAME is None:
@@ -49,6 +58,44 @@ def process_query_simple(message, api_url, model_name):
     
     # Initialize LLM
     llm = initialize_llm(api_base_url=api_url, model_name=model_name)
+    
+    # If in conversational mode, add instructions to respond conversationally
+    if not GENERATE_GRAPHS:
+        # Process query in conversational mode - just get the data info
+        df_info = get_dataframe_info(DATAFRAME)
+        
+        # Create a conversational prompt
+        conv_system_message = f"""
+        You are a helpful data analyst assistant. Answer the user's question about their data conversationally.
+        
+        Here is information about their dataset:
+        {df_info}
+        
+        Respond in a natural, conversational way. Do not generate or execute code.
+        Provide insights and analysis based on the data description.
+        """
+        
+        messages = [
+            SystemMessage(content=conv_system_message),
+            HumanMessage(content=message)
+        ]
+        
+        try:
+            # Initialize LLM if not already done
+            if llm is None:
+                return "Failed to initialize the language model. Check your LM Studio setup.", None
+                
+            # Get response from LLM
+            response = llm.predict_messages(messages)
+            if hasattr(response, 'content'):
+                return response.content, None
+            else:
+                # Fallback in case response structure is different
+                return str(response), None
+        except Exception as e:
+            return f"Error generating response: {str(e)}", None
+    
+    # Normal mode with graph generation
     result = process_query(message, DATAFRAME, api_url, model_name, llm)
     
     response_text = result["response"]
@@ -130,18 +177,30 @@ def create_gradio_interface():
         gr.Markdown("## Ask Questions About Your Data")
         
         with gr.Row():
-            query_input = gr.Textbox(
-                label="Type your question here",
-                placeholder="What is the average age in the dataset?",
-                interactive=False
-            )
+            with gr.Column(scale=4):
+                query_input = gr.Textbox(
+                    label="Type your question here",
+                    placeholder="What is the average age in the dataset?",
+                    interactive=False
+                )
+            with gr.Column(scale=1):
+                graph_toggle = gr.Checkbox(
+                    label="Generate Graphs",
+                    value=True,
+                    info="Toggle between graph generation and conversational mode"
+                )
+                mode_indicator = gr.Textbox(
+                    label="Current Mode",
+                    value="Graph generation mode",
+                    interactive=False
+                )
             
         submit_button = gr.Button("Submit Question", variant="primary", interactive=False)
             
         with gr.Row():
             response_output = gr.Markdown(
                 label="Analysis Results",
-                value="Results will appear here...",
+                value="Results will appear here..."
             )
             
         with gr.Row():
@@ -159,6 +218,13 @@ def create_gradio_interface():
             fn=upload_file,
             inputs=[file_upload],
             outputs=[file_info, query_input, query_input, submit_button]
+        )
+        
+        # Toggle between graph and conversational modes
+        graph_toggle.change(
+            fn=toggle_graph_mode,
+            inputs=[graph_toggle],
+            outputs=[mode_indicator]
         )
         
         # New processing flow for the simplified UI

@@ -5,7 +5,7 @@ Configuration settings for the AI Data Analyst application.
 # Default LLM settings
 DEFAULT_API_URL = "http://localhost:1234/v1"
 DEFAULT_MODEL_NAME = "llama-3-8b-instruct"
-DEFAULT_TEMPERATURE = 0.1
+DEFAULT_TEMPERATURE = 0.5
 
 # Matplotlib configuration
 MATPLOTLIB_STYLE = "ggplot"
